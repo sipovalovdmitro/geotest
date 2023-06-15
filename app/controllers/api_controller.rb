@@ -18,7 +18,7 @@ class ApiController < ApplicationController
     @excavator.company_name = params["Excavator"]["CompanyName"].presence
     
     @excavator.address = [params["Excavator"]["Address"].presence, params["Excavator"]["City"].presence, params["Excavator"]["State"].presence, params["Excavator"]["Zip"].presence].join(', ')
-    @excavator.crew_on_site = params["Excavator"]["CompanyName"].presence
+    @excavator.crew_on_site = params["Excavator"]["CompanyName"].presence.downcase == "true"
     @excavator.save
 
     @ticket.excavator = @excavator
