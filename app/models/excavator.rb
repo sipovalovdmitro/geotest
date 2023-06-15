@@ -1,3 +1,3 @@
 class Excavator < ApplicationRecord
-    belongs_to :ticket
+    belongs_to :tickets
 end
