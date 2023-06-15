@@ -1,0 +1,57 @@
+<%= form_with(model: ticket) do |form| %>
+  <% if ticket.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+        <% ticket.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :request_number, style: "display: block" %>
+    <%= form.text_field :request_number %>
+  </div>
+
+  <div>
+    <%= form.label :sequence_number, style: "display: block" %>
+    <%= form.number_field :sequence_number %>
+  </div>
+
+  <div>
+    <%= form.label :request_type, style: "display: block" %>
+    <%= form.text_field :request_type %>
+  </div>
+
+  <div>
+    <%= form.label :request_action, style: "display: block" %>
+    <%= form.text_field :request_action %>
+  </div>
+
+  <div>
+    <%= form.label :response_due_date_time, style: "display: block" %>
+    <%= form.datetime_field :response_due_date_time %>
+  </div>
+
+  <div>
+    <%= form.label :primary_sac, style: "display: block" %>
+    <%= form.text_field :primary_sac %>
+  </div>
+
+  <div>
+    <%= form.label :additional_sac, style: "display: block" %>
+    <%= form.text_field :additional_sac %>
+  </div>
+
+  <div>
+    <%= form.label :dig_site_info, style: "display: block" %>
+    <%= form.text_area :dig_site_info %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
