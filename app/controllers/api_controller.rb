@@ -1,6 +1,4 @@
 class ApiController < ApplicationController
-  def index
-  end
 
   def create_ticket_with_excavator
     @ticket = Ticket.new

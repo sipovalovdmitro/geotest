@@ -1,14 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Tickets</h1>
-
-<div id="tickets">
-  <% @tickets.each do |ticket| %>
-    <%= render ticket %>
-    <p>
-      <%= link_to "Show this ticket", ticket %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Request Number</th>
+      <th>Sequence Number</th>
+      <th>Request Type</th>
+      <th>Request Action</th>
+      <th>Response Due Date Time</th>
+      <th>>Primary Service Area Code</th>
+      <th>Additional Service Area Codes</th>
+      <th>Digsite Info</th>
+      <th>Excavator Company Name</th>
+      <th>Excavator Address</th>
+      <th>Excavator CrewOnSite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+          <td><%= ticket.request_number %></td>
+          <td><%= ticket.sequence_number %></td>
+          <td><%= ticket.request_type %></td>
+          <td><%= ticket.request_action %></td>
+          <td><%= ticket.response_due_date_time %></td>
+          <td><%= ticket.primary_sac %></td>
+          <td><%= ticket.additional_sac %></td>
+          <td><%= ticket.dig_site_info %></td>
+          <td><%= ticket.company_name %></td>
+          <td><%= ticket.address %></td>
+          <td><%= ticket.crew_on_site %></td>
+      </tr>
+    <% end %>
+  </tbody>
 
 <%= link_to "New ticket", new_ticket_path %>
